@@ -1,12 +1,31 @@
-[16:40:24] [main/INFO]: Setting user: Player960
-[16:40:26] [Client thread/INFO]: LWJGL Version: 2.9.1
-[16:40:27] [Client thread/ERROR]: Couldn't initialize twitch stream
-[16:40:40] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge
-[16:40:41] [Sound Library Loader/INFO]: Sound engine started
-[16:40:42] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
-[16:40:42] [Client thread/INFO]: Created: 16x16 textures/items-atlas
-[16:40:42] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge
-[16:40:43] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
-[16:40:43] [Client thread/INFO]: Created: 256x256 textures/items-atlas
-[16:40:44] [Sound Library Loader/INFO]: Sound engine started
-[16:40:49] [Client thread/INFO]: Stopping!
+[09:05:30] [main/INFO]: Setting user: Player658
+[09:05:32] [Client thread/INFO]: LWJGL Version: 2.9.1
+[09:05:32] [Client thread/ERROR]: Couldn't initialize twitch stream
+[09:05:44] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Automation Utilities
+[09:05:45] [Sound Library Loader/INFO]: Sound engine started
+[09:05:46] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
+[09:05:46] [Client thread/INFO]: Created: 16x16 textures/items-atlas
+[09:05:46] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:Automation Utilities
+[09:05:46] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[09:05:47] [Client thread/INFO]: Created: 256x256 textures/items-atlas
+[09:05:47] [Sound Library Loader/INFO]: Sound engine started
+[09:05:54] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[09:05:54] [Server thread/INFO]: Generating keypair
+[09:05:54] [Server thread/INFO]: Preparing start region for level 0
+[09:05:55] [Server thread/INFO]: Preparing spawn area: 38%
+[09:05:56] [Server thread/INFO]: Changing view distance to 12, from 10
+[09:05:57] [Server thread/INFO]: Player658[local:E:c278cdde] logged in with entity id 268 at (-930.40259456148, 6.154731763512565, 1156.789208169265)
+[09:05:57] [Server thread/INFO]: Player658 joined the game
+[09:06:08] [Server thread/INFO]: Player658 has just earned the achievement [Taking Inventory]
+[09:06:08] [Client thread/INFO]: [CHAT] Player658 has just earned the achievement [Taking Inventory]
+[09:06:49] [Server thread/INFO]: Saving and pausing game...
+[09:06:49] [Server thread/INFO]: Saving chunks for level 'MCP Stack Mover Test'/Overworld
+[09:06:49] [Server thread/INFO]: Saving chunks for level 'MCP Stack Mover Test'/Nether
+[09:06:49] [Server thread/INFO]: Saving chunks for level 'MCP Stack Mover Test'/The End
+[09:06:59] [Server thread/INFO]: Stopping server
+[09:06:59] [Server thread/INFO]: Saving players
+[09:06:59] [Server thread/INFO]: Saving worlds
+[09:06:59] [Server thread/INFO]: Saving chunks for level 'MCP Stack Mover Test'/Overworld
+[09:06:59] [Server thread/INFO]: Saving chunks for level 'MCP Stack Mover Test'/Nether
+[09:06:59] [Server thread/INFO]: Saving chunks for level 'MCP Stack Mover Test'/The End
+[09:07:00] [Client thread/INFO]: Stopping!

@@ -1,0 +1,13 @@
+package dalapo.autoutils.tileentity;
+
+import net.minecraft.block.Block;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+
+public class TileEntityStackMover extends TileEntityDirectional {
+	public TileEntityStackMover(ForgeDirection d)
+	{
+		super(d);
+	}
+	
+}

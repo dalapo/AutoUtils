@@ -1,0 +1,7 @@
+package dalapo.autoutils.helper;
+
+public class UsefulLists {
+	private UsefulLists() {}
+	
+	public static ForgeDirection[] directions = {ForgeDirection.EAST, ForgeDirection.WEST, ForgeDirection.SOUTH, ForgeDirection.NORTH, ForgeDirection.DOWN, ForgeDirection.UP};
+}

@@ -1,0 +1,18 @@
+package dalapo.autoutils.tileentity;
+
+import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.ForgeDirection;
+
+public abstract class TileEntityDirectional extends TileEntity {
+	ForgeDirection front;
+	
+	public TileEntityDirectional(ForgeDirection d)
+	{
+		front = d;
+	}
+	
+	@Override
+	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbour)
+	{
+	}
+}

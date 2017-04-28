@@ -1,0 +1,11 @@
+package dalapo.autoutils.block;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+
+public abstract class BlockDirectional extends Block {
+
+	protected BlockDirectional(Material mtl) {
+		super(mtl);
+	}
+}

@@ -1,0 +1,13 @@
+package dalapo.autoutils.logging;
+
+import org.apache.logging.log4j.Level;
+
+import cpw.mods.fml.common.FMLLog;
+import dalapo.autoutils.reference.NameList;
+
+public class Logger {
+	public static void log(Level level, Object object)
+	{
+		FMLLog.log(NameList.MODNAME, level, object.toString());
+	}
+}

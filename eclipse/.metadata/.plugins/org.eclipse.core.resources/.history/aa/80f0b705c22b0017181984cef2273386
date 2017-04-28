@@ -1,0 +1,5 @@
+package dalapo.autoutils.block;
+
+public class BlockStackMover extends Block {
+	
+}

@@ -1,0 +1,7 @@
+package dalapo.autoutils.block;
+
+import net.minecraft.block.Block;
+
+public class AutoUtilBlock extends Block {
+
+}

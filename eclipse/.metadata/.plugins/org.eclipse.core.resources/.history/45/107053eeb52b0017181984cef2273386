@@ -1,0 +1,24 @@
+package dalapo.autoutils.tileentity;
+
+import net.minecraft.block.Block;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
+
+public class TileEntityStackMover extends TileEntityDirectional {
+	ItemStack[] filter;
+	public TileEntityStackMover(ForgeDirection d)
+	{
+		super(d);
+		filter = new ItemStack[9];
+	}
+	
+	private ItemStack getStack()
+	{
+		
+	}
+	public void transferStack(ItemStack itemstack)
+	{
+		
+	}
+}

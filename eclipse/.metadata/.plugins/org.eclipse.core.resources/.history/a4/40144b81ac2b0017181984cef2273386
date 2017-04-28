@@ -1,0 +1,11 @@
+package dalapo.autoutils.reference;
+
+public class NameList {
+	private NameList() {}
+	
+	public static String MODID = "AutoUtils";
+	
+	public static String MODNAME = "Automation Utilities";
+	
+	public static String VERSION = "0.0.1";
+}

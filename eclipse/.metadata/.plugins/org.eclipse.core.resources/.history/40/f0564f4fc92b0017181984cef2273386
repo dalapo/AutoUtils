@@ -1,0 +1,25 @@
+package dalapo.autoutils.block;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
+
+public class BlockStackMover extends BlockDirectional {
+
+	protected BlockStackMover(Material mtl) {
+		super(mtl);
+	}
+	
+	@Override
+	public boolean hasTileEntity(int meta)
+	{
+		return true;
+	}
+	
+	@Override
+	public TileEntity createNewTileEntity(World world, int meta)
+	{
+		return new TileEntityStackMover(meta);
+	}
+}

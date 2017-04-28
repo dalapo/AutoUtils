@@ -1,0 +1,8 @@
+package dalapo.autoutils.logging;
+
+public class Logger {
+	public static void log(LogLevel level, Object object)
+	{
+		FMLLog.log(NameList.MODNAME, logLevel, object.toString());
+	}
+}

@@ -1,0 +1,7 @@
+package dalapo.autoutils.tileentity;
+
+import net.minecraftforge.common.util.ForgeDirection;
+
+public abstract class TileEntityDirectional {
+	ForgeDirection front;
+}

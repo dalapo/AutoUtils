@@ -1,0 +1,25 @@
+package dalapo.autoutils.block;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
+
+public abstract class BlockDirectional extends Block {
+
+	protected BlockDirectional(Material mtl) {
+		super(mtl);
+	}
+	
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase placer, ItemStack itemstack)
+	{
+		if (MathHelper.abs(placer.rotationPitch) < 60)
+		{
+			int angle = MathHelper.floor_double((placer.rotationYaw * 4F) / 360F + 0.5D);
+			while (angle >= 4) angle--;
+			while (angle < 0) angle++;
+		}
+	}
+}
