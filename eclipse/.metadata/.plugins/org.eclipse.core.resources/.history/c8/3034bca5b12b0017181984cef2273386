@@ -1,8 +1,0 @@
-package dalapo.autoutils.tileentity;
-
-public class TileEntityStackMover extends TileEntityDirectional {
-	public TileEntityStackMover(ForgeDirection d)
-	{
-		super(d);
-	}
-}

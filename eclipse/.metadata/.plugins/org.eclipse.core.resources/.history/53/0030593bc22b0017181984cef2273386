@@ -1,5 +1,0 @@
-package dalapo.autoutils.block;
-
-public abstract class BlockDirectional extends Block {
-
-}
