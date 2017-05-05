@@ -9,7 +9,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class TileEntityHelper {
 	private TileEntityHelper() {}
 	
-	public static boolean isValidSlotForSide(IInventory inv, int side, int slot, boolean insert)
+	public static boolean isValidSlotForSide(IInventory inv, int side, int slot)
 	{
 		if (!(inv instanceof ISidedInventory)) return true;
 		ItemStack stack = inv.getStackInSlot(slot);
@@ -30,8 +30,7 @@ public class TileEntityHelper {
 		Logger.info("Entered tryInsertItem with ItemStack " + itemstack.toString());
 		for (int i=0; i<inv.getSizeInventory(); i++)
 		{
-			if (inv instanceof ISidedInventory && !((ISidedInventory)inv).canInsertItem(i, itemstack, side)) continue;
-			
+			if (!isValidSlotForSide(inv, side, i)) continue;
 			ItemStack is = inv.getStackInSlot(i);
 			if (is == null)
 			{

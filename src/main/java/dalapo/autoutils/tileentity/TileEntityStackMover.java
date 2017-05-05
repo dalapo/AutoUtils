@@ -63,16 +63,18 @@ public class TileEntityStackMover extends TileEntity {
 		if (te == null) return -1;
 		for (int i=0; i<te.getSizeInventory(); i++)
 		{
+			/*
 			if (te instanceof ISidedInventory)
 			{
 				ItemStack stack = te.getStackInSlot(i);
 				Logger.info("Side = " + side + " , slot = " + i);
-				if (insert && ((ISidedInventory)te).canInsertItem(i, stack, side)) return i;
-				if (!insert && ((ISidedInventory)te).canExtractItem(i, stack, side)) return i;
+//				if (insert && ((ISidedInventory)te).canInsertItem(i, stack, side)) return i;
+//				if (!insert && ((ISidedInventory)te).canExtractItem(i, stack, side)) return i;
 			}
 			else
+			*/
 			{
-				if (te.getStackInSlot(i) != null && checkFilter(te.getStackInSlot(i)))
+				if (TileEntityHelper.isValidSlotForSide(te, side, i) && te.getStackInSlot(i) != null && checkFilter(te.getStackInSlot(i)))
 				{
 					return i;
 				}
