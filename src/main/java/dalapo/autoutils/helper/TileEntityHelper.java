@@ -14,6 +14,7 @@ public class TileEntityHelper {
 		if (!(inv instanceof ISidedInventory)) return true;
 		ItemStack stack = inv.getStackInSlot(slot);
 		int[] slots = ((ISidedInventory)inv).getAccessibleSlotsFromSide(side);
+		if (slots == null) return false;
 		for (int s : slots)
 		{
 			if (s == slot)

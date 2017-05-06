@@ -84,8 +84,8 @@ public class TileEntityStackMover extends TileEntityBasicInventory implements IS
 		
 		TileEntity pull = worldObj.getTileEntity(xCoord + front.offsetX, yCoord + front.offsetY, zCoord + front.offsetZ);
 		TileEntity push = worldObj.getTileEntity(xCoord - front.offsetX, yCoord - front.offsetY, zCoord - front.offsetZ);
-		
 		if (!(pull instanceof IInventory)) return; // Nowhere to pull from
+//		if (!(push instanceof IInventory) && !worldObj.getBlock(xCoord - front.offsetX, yCoord - front.offsetY, zCoord - front.offsetZ).isBlockNormalCube()) return;
 		int[] pair = getSlot((IInventory)pull, front.ordinal(), false);
 		if (pair == null) return; // Nothing to pull
 		

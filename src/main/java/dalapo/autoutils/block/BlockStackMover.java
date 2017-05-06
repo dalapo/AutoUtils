@@ -80,7 +80,7 @@ public class BlockStackMover extends BlockDirectional {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register)
 	{
-		super.registerBlockIcons(register);
+//		super.registerBlockIcons(register);
 		String base = isFiltered ? "filtermover" : "stackmover";
 		this.otherSide = TextureRegistryHelper.registerTexture(base + "side", register);
 		this.frontSide = TextureRegistryHelper.registerTexture(base + "front", register);

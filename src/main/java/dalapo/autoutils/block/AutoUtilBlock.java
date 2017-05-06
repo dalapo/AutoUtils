@@ -2,6 +2,7 @@ package dalapo.autoutils.block;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import dalapo.autoutils.helper.TextureRegistryHelper;
 import dalapo.autoutils.reference.NameList;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -28,7 +29,8 @@ public class AutoUtilBlock extends Block {
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register)
 	{
-		this.blockIcon = register.registerIcon(getUnwrappedUnlocalizedName(this.getName()));
+		blockIcon = TextureRegistryHelper.registerTexture(getUnwrappedUnlocalizedName(this.getName()), register);
+//		this.blockIcon = register.registerIcon(getUnwrappedUnlocalizedName(this.getName()));
 	}
 	
 	@Override

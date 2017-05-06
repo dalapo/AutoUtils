@@ -9,6 +9,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import dalapo.autoutils.gui.AutoUtilsGuiHandler;
 import dalapo.autoutils.logging.Logger;
 import dalapo.autoutils.registry.ModRegistry;
+import dalapo.autoutils.registry.RecipeRegistry;
 
 public class CommonProxy {
 	
@@ -23,7 +24,9 @@ public class CommonProxy {
 	{
 		Logger.info("Entered CommonProxy.init");
 		NetworkRegistry.INSTANCE.registerGuiHandler(AutoUtils.instance, new AutoUtilsGuiHandler());
+		RecipeRegistry.init();
 	}
+	
 	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e)

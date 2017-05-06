@@ -29,7 +29,7 @@ public class ContainerBasicInventory extends Container {
 			for (int col=0; col<cols; col++, slot++)
 			{
 				// TODO: Uncentre the y-axis if necessary to prevent overlap w/ player inventory
-				this.addSlotToContainer(new Slot(te, slot, (80 - (9 * cols)) + (col * 18), (35 - (18 * rows)) + (row * 18)));
+				this.addSlotToContainer(new Slot(te, slot, (89 - (9 * cols)) + (col * 18), (71 - (18 * rows)) + (row * 18)));
 			}
 		}
 		
