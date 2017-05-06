@@ -38,17 +38,15 @@ public class BlockStackMover extends BlockDirectional {
 		return otherSide;
 	}
 	
-	/*
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register)
 	{
 		super.registerBlockIcons(register);
-		this.otherSide = register.registerIcon("StackMover_side");
-		this.frontSide = register.registerIcon("StackMover_front");
-		this.backSide = register.registerIcon("StackMover_back");
+		this.otherSide = register.registerIcon("autoutils:stackmoverside");
+		this.frontSide = register.registerIcon("autoutils:stackmoverfront");
+		this.backSide = register.registerIcon("autoutils:stackmoverback");
 	}
-	*/
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbourID)
 	{
