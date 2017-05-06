@@ -11,34 +11,39 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import dalapo.autoutils.block.AutoUtilBlock;
 import dalapo.autoutils.item.AutoUtilItem;
+import dalapo.autoutils.logging.Logger;
 import dalapo.autoutils.reference.*;
+import dalapo.autoutils.registry.*;
 
 @Mod(modid=NameList.MODID, name=NameList.MODNAME, version=NameList.VERSION)
 public class AutoUtils
 {
 	public static Block[] blocks;
 	public static Item[] items;
-	@SidedProxy(clientSide="dalapo.autoutils.ClientProxy", serverSide="dalapo.autoutils.CommonProxy")
+	@SidedProxy(clientSide="dalapo.autoutils.ClientProxy", serverSide="dalapo.autoutils.ServerProxy")
 	public static CommonProxy proxy;
 	
-	@Instance("autoutils")
+	@Instance(NameList.MODID)
 	public static AutoUtils instance;
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		blocks = new AutoUtilBlock[ModRegistry.blocks.size()];
-		items = new AutoUtilItem[ModRegistry.items.size()];
+		Logger.info("Entered AutoUtils.preInit");
+		proxy.preInit(event);
 	}
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
-		ModRegistry.init();
+		Logger.info("Entered AutoUtils.init");
+		proxy.init(event);
 	}
 	
-	@EventHandler
+	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
+		Logger.info("Entered AutoUtils.postInit");
+		proxy.postInit(event);
 	}
 }

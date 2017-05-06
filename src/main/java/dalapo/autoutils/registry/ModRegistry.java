@@ -1,12 +1,14 @@
-package dalapo.autoutils.reference;
+package dalapo.autoutils.registry;
 
 import java.util.List;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import dalapo.autoutils.block.AutoUtilBlock;
 import dalapo.autoutils.block.BlockStackMover;
+import dalapo.autoutils.block.ItemSubtypeBlock;
 import dalapo.autoutils.item.AutoUtilItem;
 import dalapo.autoutils.tileentity.TileEntityStackMover;
+import dalapo.autoutils.reference.NameList;
 
 import java.util.ArrayList;
 
@@ -23,7 +25,8 @@ public class ModRegistry {
 	
 	public static void initBlocks()
 	{
-		blocks.add(new BlockStackMover(Material.rock, "stackmover"));
+		blocks.add(new BlockStackMover(Material.wood, "stackmover", false));
+		blocks.add(new BlockStackMover(Material.iron, "filtermover", true));
 		tiles.add(TileEntityStackMover.class);
 		for (AutoUtilBlock b : blocks)
 		{

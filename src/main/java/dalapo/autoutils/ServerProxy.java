@@ -4,23 +4,21 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import dalapo.autoutils.gui.AutoUtilsGuiHandler;
 
-public class ClientProxy extends CommonProxy {
-	@Override
+public class ServerProxy extends CommonProxy {
+	@EventHandler
 	public void preInit(FMLPreInitializationEvent e)
 	{
 		super.preInit(e);
 	}
 	
-	@Override
+	@EventHandler
 	public void init(FMLInitializationEvent e)
 	{
 		super.init(e);
 	}
 	
-	@Override
+	@EventHandler
 	public void postInit(FMLPostInitializationEvent e)
 	{
 		super.postInit(e);

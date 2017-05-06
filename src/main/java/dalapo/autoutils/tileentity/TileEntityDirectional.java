@@ -1,6 +1,6 @@
 package dalapo.autoutils.tileentity;
 
-import dalapo.autoutils.helper.UsefulLists;
+import dalapo.autoutils.reference.UsefulLists;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;

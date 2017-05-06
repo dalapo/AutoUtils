@@ -1,9 +1,9 @@
-package dalapo.autoutils.helper;
+package dalapo.autoutils.reference;
 
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class UsefulLists {
 	private UsefulLists() {}
 	
-	public static final ForgeDirection[] directions = {ForgeDirection.NORTH, ForgeDirection.WEST, ForgeDirection.SOUTH, ForgeDirection.EAST, ForgeDirection.UP, ForgeDirection.DOWN};
+	public static final ForgeDirection[] directions = {ForgeDirection.DOWN, ForgeDirection.UP, ForgeDirection.NORTH, ForgeDirection.SOUTH, ForgeDirection.WEST, ForgeDirection.EAST};
 }
