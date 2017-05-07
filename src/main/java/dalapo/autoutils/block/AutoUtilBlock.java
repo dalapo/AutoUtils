@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 
 public class AutoUtilBlock extends Block {
 
@@ -27,10 +28,16 @@ public class AutoUtilBlock extends Block {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int side, int dir)
+	{
+		return blockIcon;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register)
 	{
 		blockIcon = TextureRegistryHelper.registerTexture(getUnwrappedUnlocalizedName(this.getName()), register);
-//		this.blockIcon = register.registerIcon(getUnwrappedUnlocalizedName(this.getName()));
 	}
 	
 	@Override

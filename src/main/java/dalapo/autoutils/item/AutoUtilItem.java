@@ -1,6 +1,13 @@
 package dalapo.autoutils.item;
 
+import dalapo.autoutils.helper.TextureRegistryHelper;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
 public class AutoUtilItem extends Item {
 	private final String name;
@@ -9,6 +16,8 @@ public class AutoUtilItem extends Item {
 	{
 		super();
 		this.name = name;
+		this.setUnlocalizedName(name);
+		this.setTextureName(TextureRegistryHelper.formatTexName(name));
 	}
 	
 	public String getName()

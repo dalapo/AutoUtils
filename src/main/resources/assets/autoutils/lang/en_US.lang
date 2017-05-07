@@ -1,2 +1,4 @@
 tile.autoutils:stackmover.name=Stack Mover
 tile.autoutils:filtermover.name=Filtered Stack Mover
+tile.autoutils:rednotifier.name=Redstone Notifier
+item.watcher.name=Redstone Watcher

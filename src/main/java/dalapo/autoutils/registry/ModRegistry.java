@@ -4,9 +4,11 @@ import java.util.List;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import dalapo.autoutils.block.AutoUtilBlock;
+import dalapo.autoutils.block.BlockRSNotifier;
 import dalapo.autoutils.block.BlockStackMover;
 import dalapo.autoutils.block.ItemSubtypeBlock;
 import dalapo.autoutils.item.AutoUtilItem;
+import dalapo.autoutils.item.ItemRedstoneWatcher;
 import dalapo.autoutils.tileentity.TileEntityStackMover;
 import dalapo.autoutils.reference.NameList;
 
@@ -27,7 +29,8 @@ public class ModRegistry {
 	{
 		blocks.add(new BlockStackMover(Material.wood, "stackmover", false));
 		blocks.add(new BlockStackMover(Material.iron, "filtermover", true));
-		tiles.add(TileEntityStackMover.class);
+		blocks.add(new BlockRSNotifier(Material.wood, "rednotifier"));
+
 		for (AutoUtilBlock b : blocks)
 		{
 			GameRegistry.registerBlock(b, b.getName());
@@ -36,6 +39,7 @@ public class ModRegistry {
 	
 	public static void initItems()
 	{
+		items.add(new ItemRedstoneWatcher("watcher"));
 		for (AutoUtilItem i : items)
 		{
 			GameRegistry.registerItem(i, i.getName());
@@ -44,9 +48,10 @@ public class ModRegistry {
 	
 	public static void initTiles()
 	{
+		tiles.add(TileEntityStackMover.class);
 		for (Class c : tiles)
 		{
-			GameRegistry.registerTileEntity(c, "dummygi");
+			GameRegistry.registerTileEntity(c, c.getName());
 		}
 	}
 	public static void init()

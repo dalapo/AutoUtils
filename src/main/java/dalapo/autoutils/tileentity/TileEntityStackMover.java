@@ -30,7 +30,7 @@ public class TileEntityStackMover extends TileEntityBasicInventory implements IS
 		{
 			if (!isPowered)
 			{
-				Logger.info("About to enter transferStack()");
+//				Logger.info("About to enter transferStack()");
 				transferStack();
 				isPowered = true;
 			}
