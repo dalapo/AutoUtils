@@ -9,7 +9,7 @@ import net.minecraft.nbt.NBTTagList;
 
 public abstract class TileEntityBasicInventory extends TileEntityAutoUtils implements IInventory {
 
-	private ItemStack[] inventory;
+	public ItemStack[] inventory;
 	private String name;
 //	protected static int stackLimit = 64;
 	
@@ -77,7 +77,10 @@ public abstract class TileEntityBasicInventory extends TileEntityAutoUtils imple
 	}
 
 	@Override
-	public abstract int getInventoryStackLimit();
+	public int getInventoryStackLimit()
+	{
+		return 64;
+	}
 
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer ep) {

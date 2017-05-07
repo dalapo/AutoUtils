@@ -26,13 +26,14 @@ public class GUIBasicInventory extends GuiContainer {
 		this.xSize = 176;
 		this.ySize = 166;
 		this.te = te;
+		this.texName = texName;
 		this.playerInv = player;
 	}
 
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int x, int y)
 	{
-		this.mc.getTextureManager().bindTexture(new ResourceLocation(TextureRegistryHelper.formatGuiName("stackfilter")));
+		this.mc.getTextureManager().bindTexture(new ResourceLocation(TextureRegistryHelper.formatGuiName(texName)));
 		this.drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 	}
 	

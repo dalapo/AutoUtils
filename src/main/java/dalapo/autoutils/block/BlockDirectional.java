@@ -58,9 +58,6 @@ public abstract class BlockDirectional extends AutoUtilBlock {
 	{
 		return meta / 6;
 	}
-	
-	@Override
-	public abstract boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer ep, int side, float hitX, float hitY, float hitZ);
 
-	public abstract TileEntity createTileEntity(World world, int meta);
+
 }

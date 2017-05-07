@@ -1,4 +1,7 @@
 tile.autoutils:stackmover.name=Stack Mover
 tile.autoutils:filtermover.name=Filtered Stack Mover
 tile.autoutils:rednotifier.name=Redstone Notifier
+tile.autoutils:sequenceplacer.name=Sequential Dropper
+
 item.watcher.name=Redstone Watcher
+item.dropperstopper.name=Dropper Stopper

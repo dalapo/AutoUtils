@@ -7,6 +7,7 @@ import dalapo.autoutils.reference.NameList;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
@@ -18,6 +19,7 @@ public class AutoUtilBlock extends Block {
 		super(mtl);
 		this.name = name;
 		this.setBlockName(name);
+		this.setCreativeTab(CreativeTabs.tabRedstone);
 //		this.setBlockTextureName(name);
 	}
 	

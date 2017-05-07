@@ -9,6 +9,17 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class TileEntityHelper {
 	private TileEntityHelper() {}
 	
+	public static ItemStack getFirstItem(IInventory inv, int side)
+	{
+		for (int i=0; i<inv.getSizeInventory(); i++)
+		{
+			if (isValidSlotForSide(inv, side, i) && inv.getStackInSlot(i) != null)
+			{
+				return inv.getStackInSlot(i);
+			}
+		}
+		return null;
+	}
 	public static boolean isValidSlotForSide(IInventory inv, int side, int slot)
 	{
 		if (!(inv instanceof ISidedInventory)) return true;

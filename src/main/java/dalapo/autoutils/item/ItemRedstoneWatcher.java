@@ -4,7 +4,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import dalapo.autoutils.block.BlockRSNotifier;
-import dalapo.autoutils.event.RSToggleEvent;
+import dalapo.autoutils.helper.ChatHelper;
 import dalapo.autoutils.helper.TextureRegistryHelper;
 import dalapo.autoutils.logging.Logger;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -61,43 +61,28 @@ public class ItemRedstoneWatcher extends AutoUtilItem {
 			int x = itemstack.getTagCompound().getInteger("bound_x");
 			int y = itemstack.getTagCompound().getInteger("bound_y");
 			int z = itemstack.getTagCompound().getInteger("bound_z");
-			if (world.getBlock(x, y, z) instanceof BlockRSNotifier)
+			if (world.getBlock(x, y, z) instanceof BlockRSNotifier && world.isBlockIndirectlyGettingPowered(x, y, z))
 			{
-				if (world.isBlockIndirectlyGettingPowered(x, y, z))
-				{
-					itemstack.setItemDamage(1);
-				}
-				else itemstack.setItemDamage(0);
+				itemstack.setItemDamage(1);
+			}
+			else itemstack.setItemDamage(0);
+			
+			if (!(world.getBlock(x, y, z) instanceof BlockRSNotifier))
+			{
+				itemstack.setTagCompound(null);
 			}
 		}
 		
 		@Override
-		public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer ep)
-		{
-			if (!world.isRemote)
-			{
-				if (!itemstack.hasTagCompound())
-				{
-					Logger.info("Unlinked.");
-					return itemstack;
-				}
-				int x = itemstack.getTagCompound().getInteger("bound_x");
-				int y = itemstack.getTagCompound().getInteger("bound_y");
-				int z = itemstack.getTagCompound().getInteger("bound_z");
-				Logger.info(world.isBlockIndirectlyGettingPowered(x, y, z) ? "Powered" : "Unpowered");
-			}
-			return itemstack;
-		}
-		@Override
 		public boolean onItemUse(ItemStack itemstack, EntityPlayer ep, World world, int x, int y, int z, int side, float pX, float pY, float pZ)
 		{
-			if (world.isRemote) return false;
 			if (!(world.getBlock(x, y, z) instanceof BlockRSNotifier)) return false;
 			NBTTagCompound nbt = new NBTTagCompound();
 			nbt.setInteger("bound_x", x);
 			nbt.setInteger("bound_y", y);
 			nbt.setInteger("bound_z", z);
 			itemstack.setTagCompound(nbt);
+			ChatHelper.sendCoords("Linked to ", x, y, z);
 			return true;
 		}
 }

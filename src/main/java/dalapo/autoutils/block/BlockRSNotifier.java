@@ -1,6 +1,5 @@
 package dalapo.autoutils.block;
 
-import dalapo.autoutils.event.RSToggleEvent;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;

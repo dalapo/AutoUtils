@@ -14,7 +14,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class TileEntityStackMover extends TileEntityBasicInventory implements ISidedInventory {
+public class TileEntityStackMover extends TileEntityBasicInventory implements ISidedInventory, ActionOnRedstone {
 //	ItemStack[] filter;
 	private boolean isPowered = false;
 	public static final String id = "StackMover";
@@ -24,13 +24,13 @@ public class TileEntityStackMover extends TileEntityBasicInventory implements IS
 		super(9, "stackmover");
 	}
 	
-	public void performTick() // Called when a block adjacent to the TE updates.
+	public void performAction() // Called when a block adjacent to the TE updates.
 	{
 		if (worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord))
 		{
 			if (!isPowered)
 			{
-//				Logger.info("About to enter transferStack()");
+				Logger.info("About to enter transferStack()");
 				transferStack();
 				isPowered = true;
 			}

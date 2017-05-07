@@ -24,7 +24,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class BlockStackMover extends BlockDirectional {
+public class BlockStackMover extends BlockInventoryDirectional {
 
 	private IIcon frontSide;
 	private IIcon backSide;
@@ -45,14 +45,9 @@ public class BlockStackMover extends BlockDirectional {
 	}
 	
 	@Override
-	public boolean hasTileEntity(int meta)
-	{
-		return true;
-	}
-	
-	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityplayer, int par6, float par7, float par8, float par9)
 	{
+		super.onBlockActivated(world, x, y, z, entityplayer, par6, par7, par8, par9);
 		if (!isFiltered) return false;
 		if (!world.isRemote)
 		{
@@ -85,16 +80,6 @@ public class BlockStackMover extends BlockDirectional {
 		this.otherSide = TextureRegistryHelper.registerTexture(base + "side", register);
 		this.frontSide = TextureRegistryHelper.registerTexture(base + "front", register);
 		this.backSide = TextureRegistryHelper.registerTexture(base + "back", register);
-	}
-	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbourID)
-	{
-		super.onNeighborBlockChange(world, x, y, z, neighbourID);
-		TileEntity te = world.getTileEntity(x, y, z);
-		if (te != null && te instanceof TileEntityStackMover)
-		{
-			((TileEntityStackMover)te).performTick();
-		}
 	}
 	
 	@Override
