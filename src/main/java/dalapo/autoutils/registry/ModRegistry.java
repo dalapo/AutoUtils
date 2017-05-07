@@ -4,6 +4,7 @@ import java.util.List;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import dalapo.autoutils.block.AutoUtilBlock;
+import dalapo.autoutils.block.BlockItemRedis;
 import dalapo.autoutils.block.BlockRSNotifier;
 import dalapo.autoutils.block.BlockSequencePlacer;
 import dalapo.autoutils.block.BlockStackMover;
@@ -33,6 +34,7 @@ public class ModRegistry {
 		blocks.add(new BlockStackMover(Material.iron, "filtermover", true));
 		blocks.add(new BlockRSNotifier(Material.wood, "rednotifier"));
 		blocks.add(new BlockSequencePlacer(Material.rock, "sequenceplacer"));
+		blocks.add(new BlockItemRedis(Material.wood, "itemredis"));
 
 		for (AutoUtilBlock b : blocks)
 		{

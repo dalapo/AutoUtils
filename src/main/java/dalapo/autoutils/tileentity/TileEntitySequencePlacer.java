@@ -77,6 +77,12 @@ public class TileEntitySequencePlacer extends TileEntityBasicInventory implement
 	}
 	
 	@Override
+	public boolean isItemValidForSlot(int slot, ItemStack itemstack)
+	{
+		return itemstack.getItem() instanceof ItemBlock;
+	}
+	
+	@Override
 	public void writeToNBT(NBTTagCompound nbt)
 	{
 		super.writeToNBT(nbt);

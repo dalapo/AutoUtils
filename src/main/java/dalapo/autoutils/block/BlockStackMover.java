@@ -59,7 +59,7 @@ public class BlockStackMover extends BlockInventoryDirectional {
 	@Override
 	public boolean renderAsNormalBlock()
 	{
-		return false;
+		return true;
 	}
 	
 	@Override

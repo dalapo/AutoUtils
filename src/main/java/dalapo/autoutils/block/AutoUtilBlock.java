@@ -18,8 +18,11 @@ public class AutoUtilBlock extends Block {
 	protected AutoUtilBlock(Material mtl, String name) {
 		super(mtl);
 		this.name = name;
-		this.setBlockName(name);
-		this.setCreativeTab(CreativeTabs.tabRedstone);
+		setBlockName(name);
+		setCreativeTab(CreativeTabs.tabRedstone);
+		setHardness(4F);
+		setHarvestLevel("pickaxe", 1);
+		setResistance(4F);
 //		this.setBlockTextureName(name);
 	}
 	
