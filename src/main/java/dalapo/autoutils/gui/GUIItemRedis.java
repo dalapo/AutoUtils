@@ -29,6 +29,8 @@ public class GUIItemRedis extends GuiScreen {
 	
 	public void initGui()
 	{
+		// Send a dummy packet to load the correct GUI values
+		PacketHandler.sendToServer(new PacketItemRedis(tile, 0, 0, false));
 		left = (width - xSize) / 2;
 		top = (height - ySize) / 2;
 		for (int i=0; i<5; i++)
@@ -61,10 +63,12 @@ public class GUIItemRedis extends GuiScreen {
 	public void actionPerformed(GuiButton button)
 	{
 //		tile = (TileEntityItemRedis)tile.getWorldObj().getTileEntity(tile.xCoord, tile.yCoord, tile.zCoord);
+		/*
 		for (int i=0; i<5; i++)
 		{
 			Logger.info(tile.getRatio(i));
 		}
+		*/
 		int change = 0;
 		int side = 0;
 		boolean flag = false;

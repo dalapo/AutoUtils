@@ -3,6 +3,7 @@ package dalapo.autoutils.block;
 import dalapo.autoutils.AutoUtils;
 import dalapo.autoutils.helper.ChatHelper;
 import dalapo.autoutils.logging.Logger;
+import dalapo.autoutils.packet.PacketHandler;
 import dalapo.autoutils.reference.GUIIDList;
 import dalapo.autoutils.tileentity.TileEntityItemRedis;
 import net.minecraft.block.material.Material;
