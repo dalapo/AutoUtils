@@ -20,6 +20,27 @@ public class TileEntityHelper {
 		}
 		return null;
 	}
+	
+	/**
+	 * Returns true if at least one item in the given ItemStack can be inserted into
+	 * the given inventory on the given side.
+	 * @param inv
+	 * @return
+	 */
+	public static boolean hasSpaceForItem(IInventory inv, ItemStack is, int side)
+	{
+		if (inv == null) return true;
+		for (int i=0; i<inv.getSizeInventory(); i++)
+		{
+			ItemStack test = inv.getStackInSlot(i);
+			if (isValidSlotForSide(inv, side, i) && (test == null || (is.isItemEqual(test) && test.stackSize < test.getMaxStackSize())))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public static boolean isValidSlotForSide(IInventory inv, int side, int slot)
 	{
 		if (!(inv instanceof ISidedInventory)) return true;

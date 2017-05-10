@@ -43,6 +43,7 @@ public class TileEntityStackMover extends TileEntityBasicInventory implements IS
 	{
 		return "Filter";
 	}
+	
 	private boolean shouldFilter()
 	{
 		for (int i=0; i<9; i++)
@@ -62,7 +63,7 @@ public class TileEntityStackMover extends TileEntityBasicInventory implements IS
 		return -1;
 	}
 	
-	private int[] getSlot(IInventory te, int side, boolean insert)
+	private int[] getSlot(IInventory te, IInventory dest, int side, boolean insert)
 	{
 		// pair[0] = filter slot, pair[1] = inv slot
 		if (te == null) return null;
@@ -72,7 +73,8 @@ public class TileEntityStackMover extends TileEntityBasicInventory implements IS
 			int filterSlot = checkFilter(te.getStackInSlot(i));
 			if (TileEntityHelper.isValidSlotForSide(te, side, i) && te.getStackInSlot(i) != null && filterSlot != -1)
 			{
-				return new int[] {filterSlot, i};
+				ItemStack wouldMove = te.getStackInSlot(i);
+				if (TileEntityHelper.hasSpaceForItem(dest, wouldMove, ForgeDirection.OPPOSITES[side])) return new int[] {filterSlot, i};
 			}
 		}
 		return null;
@@ -85,8 +87,7 @@ public class TileEntityStackMover extends TileEntityBasicInventory implements IS
 		TileEntity pull = worldObj.getTileEntity(xCoord + front.offsetX, yCoord + front.offsetY, zCoord + front.offsetZ);
 		TileEntity push = worldObj.getTileEntity(xCoord - front.offsetX, yCoord - front.offsetY, zCoord - front.offsetZ);
 		if (!(pull instanceof IInventory)) return; // Nowhere to pull from
-//		if (!(push instanceof IInventory) && !worldObj.getBlock(xCoord - front.offsetX, yCoord - front.offsetY, zCoord - front.offsetZ).isBlockNormalCube()) return;
-		int[] pair = getSlot((IInventory)pull, front.ordinal(), false);
+		int[] pair = getSlot((IInventory)pull, (IInventory)push, ForgeDirection.OPPOSITES[front.ordinal()], false);
 		if (pair == null) return; // Nothing to pull
 		
 		// Condition for reaching here: The TE has found an ItemStack to move

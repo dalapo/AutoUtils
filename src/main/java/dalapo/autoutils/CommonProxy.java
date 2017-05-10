@@ -8,6 +8,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import dalapo.autoutils.gui.AutoUtilsGuiHandler;
 import dalapo.autoutils.logging.Logger;
+import dalapo.autoutils.packet.PacketHandler;
 import dalapo.autoutils.registry.ModRegistry;
 import dalapo.autoutils.registry.RecipeRegistry;
 
@@ -17,6 +18,7 @@ public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent e)
 	{
 		ModRegistry.init();
+		PacketHandler.registerMessages("AutoUtils");
 	}
 	
 	@EventHandler

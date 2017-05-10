@@ -11,6 +11,7 @@ import dalapo.autoutils.block.BlockStackMover;
 import dalapo.autoutils.block.ItemSubtypeBlock;
 import dalapo.autoutils.item.AutoUtilItem;
 import dalapo.autoutils.item.ItemRedstoneWatcher;
+import dalapo.autoutils.tileentity.TileEntityItemRedis;
 import dalapo.autoutils.tileentity.TileEntitySequencePlacer;
 import dalapo.autoutils.tileentity.TileEntityStackMover;
 import dalapo.autoutils.reference.NameList;
@@ -55,6 +56,7 @@ public class ModRegistry {
 	{
 		tiles.add(TileEntityStackMover.class);
 		tiles.add(TileEntitySequencePlacer.class);
+		tiles.add(TileEntityItemRedis.class);
 		for (Class c : tiles)
 		{
 			GameRegistry.registerTileEntity(c, c.getName());
@@ -65,7 +67,6 @@ public class ModRegistry {
 		initBlocks();
 		initItems();
 		initTiles();
-		
 	}
 	public static int getSize()
 	{
