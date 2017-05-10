@@ -57,10 +57,6 @@ public class PacketItemRedis extends AutoUtilsPacket
 		x = te.xCoord;
 		y = te.yCoord;
 		z = te.zCoord;
-		for (int i=0; i<5; i++)
-		{
-			vals[i] = te.getRatio(i);
-		}
 		side = s;
 		change = c;
 		this.toggle = toggle;

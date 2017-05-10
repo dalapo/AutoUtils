@@ -47,7 +47,7 @@ public class TileEntityItemRedis extends TileEntityAutoUtils
 	
 	public void setRatio(int side, int val)
 	{
-		if (MiscHelper.isInRange(side, 0, 4) && val > 0)
+		if (MiscHelper.isInRange(side, 0, 4) && val >= 0)
 		{
 			ratios[side] = val;
 		}
