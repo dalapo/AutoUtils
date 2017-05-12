@@ -1,5 +1,7 @@
 package dalapo.autoutils.block;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import dalapo.autoutils.logging.Logger;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -7,14 +9,28 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract class BlockDirectional extends AutoUtilBlock {
 
+	public IIcon front;
+	public IIcon back;
+	public IIcon side;
+	
 	protected BlockDirectional(Material mtl, String name) {
 		super(mtl, name);
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int s, int meta)
+	{
+		if (s == meta) return front;
+		else if (s == ForgeDirection.OPPOSITES[meta]) return back;
+		else return side;
 	}
 	
 	@Override
@@ -48,9 +64,10 @@ public abstract class BlockDirectional extends AutoUtilBlock {
 			if (placer.rotationPitch > 0) direction = 1;
 			else direction = 0;
 		}
+		if (placer.isSneaking()) direction = ForgeDirection.OPPOSITES[direction];
 		world.setBlockMetadataWithNotify(x, y, z, direction, 3);
-//		Logger.info("Direction: " + ForgeDirection.getOrientation(direction).toString() + String.format("(%s)", direction));
-		world.addTileEntity(createTileEntity(world, world.getBlockMetadata(x, y, z) % 6));
+		Logger.info("Direction: " + ForgeDirection.getOrientation(direction).toString() + String.format("(%s)", direction));
+//		world.addTileEntity(createTileEntity(world, world.getBlockMetadata(x, y, z) % 6));
 	}
 	
 	@Override

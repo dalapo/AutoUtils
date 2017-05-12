@@ -7,6 +7,7 @@ import dalapo.autoutils.block.AutoUtilBlock;
 import dalapo.autoutils.block.BlockItemRedis;
 import dalapo.autoutils.block.BlockRSNotifier;
 import dalapo.autoutils.block.BlockSequencePlacer;
+import dalapo.autoutils.block.BlockSidedEmitter;
 import dalapo.autoutils.block.BlockStackMover;
 import dalapo.autoutils.block.ItemSubtypeBlock;
 import dalapo.autoutils.item.AutoUtilItem;
@@ -36,6 +37,7 @@ public class ModRegistry {
 		blocks.add(new BlockRSNotifier(Material.wood, "rednotifier"));
 		blocks.add(new BlockSequencePlacer(Material.rock, "sequenceplacer"));
 		blocks.add(new BlockItemRedis(Material.wood, "itemredis"));
+		blocks.add(new BlockSidedEmitter(Material.rock, "sidedrs"));
 
 		for (AutoUtilBlock b : blocks)
 		{

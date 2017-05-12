@@ -25,10 +25,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlockStackMover extends BlockInventoryDirectional {
-
-	private IIcon frontSide;
-	private IIcon backSide;
-	private IIcon otherSide;
 	
 	private boolean isFiltered;
 	
@@ -64,22 +60,13 @@ public class BlockStackMover extends BlockInventoryDirectional {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-	public IIcon getIcon(int side, int dir)
-	{
-		if (side == dir) return frontSide;
-		if (side == MiscHelper.getOpposite(dir)) return backSide;
-		return otherSide;
-	}
-	
-	@Override
-	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister register)
 	{
 //		super.registerBlockIcons(register);
 		String base = isFiltered ? "filtermover" : "stackmover";
-		this.otherSide = TextureRegistryHelper.registerTexture(base + "side", register);
-		this.frontSide = TextureRegistryHelper.registerTexture(base + "front", register);
-		this.backSide = TextureRegistryHelper.registerTexture(base + "back", register);
+		this.side = TextureRegistryHelper.registerTexture(base + "side", register);
+		this.front = TextureRegistryHelper.registerTexture(base + "front", register);
+		this.back = TextureRegistryHelper.registerTexture(base + "back", register);
 	}
 	
 	@Override

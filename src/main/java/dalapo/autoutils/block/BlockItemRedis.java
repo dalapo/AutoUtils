@@ -1,12 +1,16 @@
 package dalapo.autoutils.block;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import dalapo.autoutils.AutoUtils;
 import dalapo.autoutils.helper.ChatHelper;
+import dalapo.autoutils.helper.TextureRegistryHelper;
 import dalapo.autoutils.logging.Logger;
 import dalapo.autoutils.packet.PacketHandler;
 import dalapo.autoutils.reference.GUIIDList;
 import dalapo.autoutils.tileentity.TileEntityItemRedis;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -14,10 +18,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 public class BlockItemRedis extends AutoUtilBlock
 {
+	private IIcon[] texSides = new IIcon[6];
 	public BlockItemRedis(Material mtl, String name)
 	{
 		super(mtl, name);
@@ -27,6 +33,24 @@ public class BlockItemRedis extends AutoUtilBlock
 	public boolean hasTileEntity(int meta)
 	{
 		return true;
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int side, int meta)
+	{
+		return texSides[side];
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister register)
+	{
+		String[] suffixes = new String[] {"_d", "_u", "_n", "_s", "_w", "_e"};
+		for (int i=0; i<6; i++)
+		{
+			texSides[i] = TextureRegistryHelper.registerTexture(name + suffixes[i], register);
+		}
 	}
 	
 	@Override

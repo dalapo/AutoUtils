@@ -20,6 +20,10 @@ public class RecipeRegistry {
 		GameRegistry.addRecipe(new ItemStack(ModRegistry.items.get(ItemIDList.WATCHER)),
 				"QTQ", "SSS", 'Q', Items.quartz, 'T', Blocks.redstone_torch, 'S', new ItemStack(Blocks.stone_slab, 1, 0));
 		GameRegistry.addRecipe(new ItemStack(ModRegistry.blocks.get(BlockIDList.SEQUENCE_PLACER)),
-				"III", "CDT", "III", 'I', Items.iron_ingot, 'C', Blocks.chest, 'D', Items.diamond, 'T', Blocks.dispenser);
+				"III", "CDT", "III", 'I', Blocks.planks, 'C', Blocks.chest, 'D', Items.diamond, 'T', Blocks.dispenser);
+		GameRegistry.addRecipe(new ItemStack(ModRegistry.blocks.get(BlockIDList.REDSTONE_PANEL)),
+				"RR", "SS", "SS", 'R', Items.redstone, 'S', Blocks.stone_slab);
+		GameRegistry.addRecipe(new ItemStack(ModRegistry.blocks.get(BlockIDList.ITEM_REDIS)),
+				"WHW", "RQG", "WLW", 'W', Blocks.planks, 'H', Blocks.hopper, 'R', Items.redstone, 'Q', Blocks.quartz_block, 'L', new ItemStack(Items.dye, 1, 4), 'G', Items.glowstone_dust);
 	}
 }

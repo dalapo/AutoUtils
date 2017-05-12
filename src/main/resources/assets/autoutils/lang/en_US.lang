@@ -3,5 +3,6 @@ tile.autoutils:filtermover.name=Filtered Stack Mover
 tile.autoutils:rednotifier.name=Redstone Notifier
 tile.autoutils:sequenceplacer.name=Sequential Placer
 tile.autoutils:itemredis.name=Item Redistributor
+tile.autoutils:sidedrs.name=Redstone Panel
 
 item.watcher.name=Redstone Watcher

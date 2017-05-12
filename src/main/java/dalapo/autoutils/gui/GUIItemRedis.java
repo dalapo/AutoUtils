@@ -15,6 +15,7 @@ import net.minecraft.util.ResourceLocation;
 public class GUIItemRedis extends GuiScreen {
 	String texName;
 	TileEntityItemRedis tile;
+	GuiButton toggleSplit;
 	GuiButton[][] buttons = new GuiButton[5][2];
 	GuiLabel[] labels = new GuiLabel[5];
 	private int left;
@@ -41,6 +42,8 @@ public class GUIItemRedis extends GuiScreen {
 			buttonList.add(buttons[i][0]);
 			buttonList.add(buttons[i][1]);
 		}
+		toggleSplit = new GuiButton(0, width / 2 - 60, height / 2 - 70, 120, 20, "Toggle stack splitting");
+		buttonList.add(toggleSplit);
 	}
 	
 	@Override
@@ -86,8 +89,9 @@ public class GUIItemRedis extends GuiScreen {
 			}
 			if (flag) break;
 		}
-		PacketHandler.sendToServer(new PacketItemRedis(tile, side, change, false)); // Server-side
-		tile.changeRatio(side, change); // Client-side
+		if (button == toggleSplit) PacketHandler.sendToServer(new PacketItemRedis(tile, 0, 0, true));
+		else PacketHandler.sendToServer(new PacketItemRedis(tile, side, change, false));
+		tile.changeRatio(side, change);
 		tile.markDirty();
 	}
 	

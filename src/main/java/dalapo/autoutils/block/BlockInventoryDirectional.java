@@ -4,8 +4,10 @@ import dalapo.autoutils.tileentity.ActionOnRedstone;
 import dalapo.autoutils.tileentity.TileEntityStackMover;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -21,6 +23,12 @@ public abstract class BlockInventoryDirectional extends BlockDirectional {
 		return true;
 	}
 	
+	@Override
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase placer, ItemStack itemstack)
+	{
+		super.onBlockPlacedBy(world, x, y, z, placer, itemstack);
+		world.addTileEntity(createTileEntity(world, world.getBlockMetadata(x, y, z) % 6));
+	}
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, Block neighbourID)
 	{

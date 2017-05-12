@@ -35,6 +35,7 @@ public class PacketItemRedis extends AutoUtilsPacket
 		}
 		side = buf.readInt();
 		change = buf.readInt();
+		toggle = buf.readBoolean();
 	}
 	
 	@Override
@@ -49,6 +50,7 @@ public class PacketItemRedis extends AutoUtilsPacket
 		}
 		buf.writeInt(side);
 		buf.writeInt(change);
+		buf.writeBoolean(toggle);
 	}
 	
 	public PacketItemRedis(TileEntityItemRedis te, int s, int c, boolean toggle)
@@ -75,25 +77,27 @@ public class PacketItemRedis extends AutoUtilsPacket
 			TileEntityItemRedis te = (TileEntityItemRedis)world.getTileEntity(((PacketItemRedis)message).x, ((PacketItemRedis)message).y, ((PacketItemRedis)message).z);
 			if (!(te instanceof TileEntityItemRedis)) throw new RuntimeException("Dave doesn't know how packets work!");
 			((TileEntityItemRedis)te).changeRatio(((PacketItemRedis)message).side, ((PacketItemRedis)message).change);
-			if (((PacketItemRedis)message).toggle) te.toggleSplit();
+			if (((PacketItemRedis)message).toggle) te.toggleSplit(); // Server-side
 			te.markDirty();
 			for (int i=0; i<5; i++)
 			{
 				vals[i] = te.getRatio(i);
 			}
+			((PacketItemRedis)message).toggle = te.shouldSplit();
 			PacketHandler.sendToPlayer(message, (EntityPlayerMP)ep);
 		}
 		else
 		{
-			Logger.info(world instanceof WorldServer);
 			TileEntityItemRedis te = (TileEntityItemRedis)world.getTileEntity(((PacketItemRedis)message).x, ((PacketItemRedis)message).y, ((PacketItemRedis)message).z);
 			if (!(te instanceof TileEntityItemRedis)) throw new RuntimeException("Dave still doesn't know how packets work!");
 			for (int i=0; i<5; i++)
 			{
 				te.setRatio(i, vals[i]);
+
 				Logger.info(vals[i]);
-				te.markDirty();
 			}
+			if (((PacketItemRedis)message).change == 0) ChatHelper.sendMessage(toggle ? "Now splitting stacks" : "Now keeping stacks together");
+			te.markDirty();
 		}
 	}
 	

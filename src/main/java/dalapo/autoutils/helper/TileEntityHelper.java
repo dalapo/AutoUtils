@@ -60,6 +60,7 @@ public class TileEntityHelper {
 	public static ItemStack tryInsertItem(IInventory inv, ItemStack itemstack, int side)
 	{
 		if (itemstack == null) return null;
+		if (inv == null) return itemstack;
 		Logger.info("Entered tryInsertItem with ItemStack " + itemstack.toString());
 		for (int i=0; i<inv.getSizeInventory(); i++)
 		{
@@ -70,7 +71,7 @@ public class TileEntityHelper {
 				inv.setInventorySlotContents(i, itemstack.copy());
 				itemstack.stackSize = 0;
 			}
-			else if (is.getItem().equals(itemstack.getItem()))
+			else if (is.isItemEqual(itemstack))
 			{
 				int transfer = is.getMaxStackSize() - is.stackSize;
 				if (transfer > itemstack.stackSize) transfer = itemstack.stackSize;

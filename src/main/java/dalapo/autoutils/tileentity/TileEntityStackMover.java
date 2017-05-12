@@ -58,7 +58,7 @@ public class TileEntityStackMover extends TileEntityBasicInventory implements IS
 		if (!shouldFilter()) return 9;
 		for (int i=0; i<9; i++)
 		{
-			if (getStackInSlot(i) != null && getStackInSlot(i).getItem().equals(is.getItem())) return i;
+			if (getStackInSlot(i) != null && getStackInSlot(i).isItemEqual(is)) return i;
 		}
 		return -1;
 	}
