@@ -90,7 +90,7 @@ public class BlockItemRedis extends AutoUtilBlock
 //		Logger.info(world.getTileEntity(x, y, z) == null);
 //		ChatHelper.sendCoords("Entity: ", (int)entity.posX, (int)entity.posY, (int)entity.posZ);
 //		ChatHelper.sendCoords("Block: ", x, y, z);
-		if ((int)entity.posX == x && (int)entity.posY > y && (int)entity.posZ == z/* && world.getTileEntity(x, y, z) instanceof TileEntityItemRedis*/)
+		if (entity.isCollidedVertically && (int)(entity.posY + 0.1) > y)
 		{
 			ItemStack is = ((EntityItem)entity).getEntityItem();
 			entity.setDead();
